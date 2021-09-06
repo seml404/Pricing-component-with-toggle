@@ -1,0 +1,213 @@
+@import "nullstyle.css"; // файл обнуляющух стилей
+
+body {
+  position: relative;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.background__wrapper {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  height: 100%;
+  display: flex;
+
+  .wrapper__el {
+    flex: 0 1 50%;
+  }
+  .el_right {
+    background-image: url("./images/bg-top.svg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-color: #f7f7ff;
+  }
+  .el_left {
+    background-image: url(./images/bg-bottom.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-color: #f7f7ff;
+  }
+}
+
+.header__content {
+  position: relative;
+  z-index: 101;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "title"
+    "options";
+  padding-top: 75px;
+  .header__title {
+    color: #6e728b;
+    font-weight: 700;
+    padding-bottom: 50px;
+    font-size: 30px;
+    grid-area: title;
+    text-align: center;
+  }
+  .header__options {
+    padding-bottom: 43px;
+    font-weight: 500;
+    display: grid;
+    grid-template: 1fr/1fr 70px 1fr;
+  }
+  .header__option {
+    font-size: 14px;
+    align-self: center;
+  }
+  .opt_1 {
+    text-align: right;
+  }
+
+  // .opt_2 {
+  //   grid-area: opt2;
+  // }
+
+  .header__button {
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    position: relative;
+    appearance: none;
+    outline: none;
+    width: 50px;
+    height: 30px;
+    background-color: #ffffff;
+    border: 1px solid #d9dadc;
+    border-radius: 50px;
+    box-shadow: inset -20px 0 0 0 #ffffff;
+    transition-duration: 200ms;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      background: transparent;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .btn_on {
+    align-self: center;
+    justify-content: center;
+    position: relative;
+    appearance: none;
+    outline: none;
+    width: 50px;
+    height: 30px;
+    background-color: #ffffff;
+    border: 1px solid #d9dadc;
+    border-radius: 50px;
+    box-shadow: inset -20px 0 0 0 #ffffff;
+    transition-duration: 200ms;
+    &:checked {
+      box-shadow: inset 20px 0 0 0 #6879da;
+      border-color: #6879da;
+    }
+    &:checked:after {
+      left: 20px;
+      box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+.main {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  .main__cards {
+    min-height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .card__item {
+      padding: 30px;
+      border-radius: 5%;
+      flex: 0 1 33.33%;
+      height: 480px;
+      min-width: 345px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      background-color: #ffff;
+    }
+    .card__item.middle {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      font-weight: 700;
+      color: #ffff;
+      height: 520px;
+      //   background-color: #888ee6;
+      background: linear-gradient(to left, #abb4f3, #6879da);
+      .card__title {
+        color: #ffff;
+      }
+      p {
+        border-bottom: 2px solid #ffff;
+        color: #ffff;
+      }
+      .card__button {
+        background: #ffffff;
+        color: #6879da;
+      }
+    }
+    .card__title {
+      padding-top: 35px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #6e728b;
+      padding-bottom: 40px;
+    }
+
+    .card__descr {
+      width: 100%;
+      justify-content: center;
+      flex: 1 1 100%;
+      p {
+        color: #6e728b;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 2px solid #dcdcdc;
+      }
+      .card__price {
+        padding-top: 0;
+        font-size: 53px;
+        padding-bottom: 40px;
+        font-weight: 700;
+      }
+    }
+    .card__button {
+      font-weight: 700;
+      color: #ffffff;
+      display: block;
+      padding: 13px 90px;
+      background: linear-gradient(to left, #abb4f3, #6879da);
+      border-radius: 10px;
+    }
+  }
+}
+
+@media (max-width: 1040px) {
+  .main .main__cards {
+    display: block;
+    .card__item,
+    .card__item.middle {
+      margin-bottom: 25px;
+    }
+  }
+}
